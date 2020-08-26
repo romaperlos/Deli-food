@@ -28,11 +28,11 @@ app.use(session({
 }));
 
 
-app.use('/login',loginRouter);
-app.use('/registration',registrationRouter);
+app.use('/login', loginRouter);
+app.use('/registration', registrationRouter);
 
 app.get('/', (req, res) => {
-  res.send('Hello')
+  res.render('main')
 })
 
 const port = process.env.PORT || '3000';
