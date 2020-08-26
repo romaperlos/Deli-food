@@ -7,6 +7,12 @@ const path = require('path');
 
 const app = express();
 
+// Init routes
+const registrationRouter = require('./routes/registration');
+const loginRouter = require('./routes/login')
+
+
+app.use(express.static(path.join(__dirname, 'public')));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
@@ -21,7 +27,9 @@ app.use(session({
   cookie: { path: '/', httpOnly: true, secure: false, maxAge: null },
 }));
 
-app.use(express.static(path.join(__dirname, 'public')));
+
+app.use('/login',loginRouter);
+app.use('/registration',registrationRouter);
 
 app.get('/', (req, res) => {
   res.send('Hello')
