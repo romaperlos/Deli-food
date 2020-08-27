@@ -1,23 +1,38 @@
 const express = require("express");
 const router = express.Router();
 const Courier = require('../models/courier.js');
+const CourierOrder = require('../models/courierOrder');
 const checkAuthSession = require('../auth/auth');
 
 router.get('/main', checkAuthSession, (req, res) => {
   console.log('courier main');
-  res.render('courier/main', {layout: 'navbar.hbs'});
+  res.render('courier/main', { layout: 'navbar.hbs' });
 });
 
 router.get('/search', checkAuthSession, (req, res) => {
-  res.send('search page courier');
+  res.render('courier/search', { layout: 'navbar.hbs' });
 });
 
+router.post('/search', checkAuthSession, async (req, res) => {
+  const { cafe, basket, address, oldPrice,sales} = req.body;
+  const courierOrders = await new CourierOrder({
+    cafe,
+    basket,
+    address,
+    oldPrice,
+    newPrice: oldPrice - (oldPrice / 100 * sales),
+  });
+  courierOrders.save();
+  console.log(courierOrders);
+  res.redirect('/courier/search');
+})
+
 router.get('/order', checkAuthSession, (req, res) => {
-  res.send('order page courier');
+  res.render('courier/order', { layout: 'navbar.hbs' });
 });
 
 router.get('history', checkAuthSession, (req, res) => {
-  res.send('history page courier');
+  res.render('courier/history', { layout: 'navbar.hbs' });
 });
 
 module.exports = router;
