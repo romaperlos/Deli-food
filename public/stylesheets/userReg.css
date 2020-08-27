@@ -1,3 +1,19 @@
+body {
+  background-position: center center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  height: 100vh;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  background-image: url(https://cdn.sm-news.ru/wp-content/uploads/2020/02/19/appetite-hi-1300x675.jpg);
+
+}
+
 .form-group {
   margin-bottom: 15px;
 }
@@ -45,7 +61,7 @@ input::-webkit-input-placeholder {
   margin: 0 auto;
   max-width: 400px;
   padding: 10px 40px;
-  background: #4eb808;
+  background: #eba845;
   color: #FFF;
   text-shadow: none;
   box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.31);
