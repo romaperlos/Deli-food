@@ -1,11 +1,11 @@
 const mongoose = require("mongoose");
 
 const courierOrderSchema = new mongoose.Schema({
-  restaurant: {
+  cafe: {
     type: String,
     required: true,
   },
-  orderInput: {
+  basket: {
     type: String,
     required: true,
   },

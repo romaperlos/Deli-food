@@ -9,15 +9,15 @@ router.get('/main', checkAuthSession, (req, res) => {
 });
 
 router.get('/search', checkAuthSession, (req, res) => {
-  res.send('search page user');
+  res.render('user/search', { layout: 'navbar.hbs' });
 });
 
 router.get('/order', checkAuthSession, (req, res) => {
-  res.send('order page user');
+  res.render('user/order', { layout: 'navbar.hbs' });
 });
 
 router.get('history', checkAuthSession, (req, res) => {
-  res.send('history page user');
+  res.render('user/history', { layout: 'navbar.hbs' });
 });
 
 module.exports = router;

@@ -1,40 +1,65 @@
 <h2>СОЗДАТЬ ЗАЯВКУ:</h2>
+
 <ul>
-  <li>Ресторан: <input> </li><br>
+  <li>Ресторан: <input type="text"> </li><br>
   <li>Содержимое заказа: <input></li><br>
   <li>Текущий адрес: <input></li><br>
   <li>Изначальная цена заказа: <input></li><br>
   <li>Новая цена со скидкой: <input></li><br>
-</ul>
-<button> <a href="/">РАЗМЕСТИТЬ ЗАЯВКУ</a></button>
+  </ul>
+  <button> <a href="/">РАЗМЕСТИТЬ ЗАЯВКУ</a></button>
 
 
 
-<form>
-  <div class="form-group">
-    <label for="exampleInputEmail1">Ресторан:</label>
-    <input type="text" class="form-control" id="rest" aria-describedby="rest" placeholder="Ресторан">
-  </div>
-  <div class="form-group">
-    <label for="addres">Текущий адрес:</label>
-    <input type="text" class="form-control" id="addres" placeholder="адрес">
-  </div>
-  <div class="form-group">
-    <label for="order">Содержимое заказа:</label>
-    <textarea class="form-control" id="order" rows="3"></textarea>
-  </div>
+  <form>
+    <div class="form-group">
+      <label for="exampleInputEmail1">Ресторан:</label>
+      <input type="text" class="form-control" id="rest" aria-describedby="rest" placeholder="Ресторан">
+    </div>
+    <div class="form-group">
+      <label for="addres">Текущий адрес:</label>
+      <input type="text" class="form-control" id="addres" placeholder="адрес">
+    </div>
+    <div class="form-group">
+      <label for="order">Содержимое заказа:</label>
+      <textarea class="form-control" id="order" rows="3"></textarea>
+    </div>
 
 
-  <div class="form-group">
-    <label for="exampleInputFile">Загрузить фотографию заказа</label>
-    <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
-    <small id="fileHelp" class="form-text text-muted">Вы можете загрузить фото Вашего заказа или иное.</small>
+    <div class="form-group">
+      <label for="exampleInputFile">Загрузить фотографию заказа</label>
+      <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
+      <small id="fileHelp" class="form-text text-muted">Вы можете загрузить фото Вашего заказа или иное.</small>
+    </div>
+    <div class="form-check">
+      <label class="form-check-label">
+        <input type="checkbox" class="form-check-input">
+        Торг
+      </label>
+    </div>
+    <button type="submit" class="btn btn-primary">РАЗМЕСТИТЬ ЗАЯВКУ</button>
+    {{!-- =======
+
+<form method="POST" action="/courier/search">
+  <div class="container">
+    <p>Please fill in this form to create an order.</p>
+    <hr>
+    <label for="cafe"></label><b>Ресторан</b></label>
+    <input type="text" placeholder="Enter Cafe" name="cafe" required>
+
+    <label for="basket"><b>Содержимое заказа</b></label>
+    <input type="text" placeholder="Enter Basket" name="basket" id="basket" required>
+
+    <label for="address"><b>Текущий адрес</b></label>
+    <input type="text" placeholder="Enter address" name="address" id="address" required>
+
+    <label for="oldPrice"><b>Изначальная цена заказа</b></label>
+    <input type="oldPrice" placeholder="Enter Old Price" name="oldPrice" id="oldPrice" required>
+
+    <label for="sales"><b>Укажите скидку</b></label>
+    <input type="sales" placeholder="Sales" name="sales" id="sales" required>
+    <hr>
+    <button type="submit" class="registerbtn">Send</button>
   </div>
-  <div class="form-check">
-    <label class="form-check-label">
-      <input type="checkbox" class="form-check-input">
-      Торг
-    </label>
-  </div>
-  <button type="submit" class="btn btn-primary">РАЗМЕСТИТЬ ЗАЯВКУ</button>
-</form>
+>>>>>>> 24b96bd15045000d030ca73fae3b9706fa372eb6 --}}
+  </form>
