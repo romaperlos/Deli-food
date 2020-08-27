@@ -9,13 +9,13 @@ require('dotenv').config()
 const app = express();
 
 
+
 mongoose.connect(process.env.MONGO_CONNECT, { useNewUrlParser: true, useUnifiedTopology: true });
+
 
 // Init routes
 const registrationRouter = require('./routes/registration');
-const loginRouter = require('./routes/login');
-const userRouter = require('./routes/user');
-const courierRouter = require('./routes/courier');
+const loginRouter = require('./routes/login')
 
 
 app.use(express.static(path.join(__dirname, 'public')));
@@ -33,6 +33,7 @@ app.use(session({
   cookie: { path: '/', httpOnly: true, secure: false, maxAge: null },
 }));
 
+
 //////// check session /////////
 app.use((req, res, next) => {
   // console.log('COOKIES: ', req.cookies);
@@ -44,14 +45,11 @@ app.use((req, res, next) => {
   next();
 })
 
-app.use('/user', userRouter);
-app.use('/courier', courierRouter);
+
 app.use('/login', loginRouter);
 app.use('/registration', registrationRouter);
 
-
 app.get('/', (req, res) => {
-  console.log('main page app');
   res.render('main')
 })
 
