@@ -1,9 +1,51 @@
-<div class="login">
-  <h1>Login</h1>
-  <form method="POST" action="/login/courier">
-    <label> Email: <input name="email" type="text" placeholder="Enter Email"></label>
-    <label> Password: <input name="password" type="password" placeholder="Enter password"></label>
-    <label> Repeat passwor: <input name="password2" type="password" placeholder="Repeat password"></label>
-    <button type="submit">Entry</button>
-  </form>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
+<link rel="stylesheet" href="/stylesheets/registration.css">
+
+<div class="container d-flex justify-content-center ">
+  <div class="row main-form text-center jumbotron">
+    <h3 class="row main-form text-center ">
+      <p><strong>Login courier</strong></p>
+    </h3>
+    <form method="POST" action="/login/courier">
+      <div class="form-group">
+        <label for="email" class="cols-sm-2 control-label"><b>Email</b></label>
+        <div class="cols-sm-10">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+            <input type="text" placeholder="Enter Email" name="email" id="email" title="Invalid email"
+              class="form-control" required>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="form-group">
+        <label for="password" class="cols-sm-2 control-label"><b>Password</b></label>
+        <div class="cols-sm-10">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+            <input type="password" placeholder="Enter Password" name="password" id="password" required
+              class="form-control">
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group"></div>
+      <label for="password-repeat" class="cols-sm-2 control-label"><b>Repeat Password</b></label>
+      <div class="cols-sm-10">
+        <div class="input-group">
+          <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+          <input type="password" placeholder="Repeat Password" name="passwordRepeat" id="password-repeat" required
+            class="form-control">
+        </div>
+      </div>
+
+      <br>
+      <div class="text-xs-center">
+        <button class="btn btn-block btn-primary" type="submit">Registration</button>
+      </div>
+
+    </form>
+  </div>
 </div>
