@@ -5,11 +5,11 @@ const checkAuthSession = require('../auth/auth');
 
 router.get('/main', checkAuthSession, (req, res) => {
   console.log('courier main');
-  res.render('courier/main', {layout: 'navbar.hbs'});
+  res.render('courier/main', { layout: 'navbar.hbs' });
 });
 
 router.get('/search', checkAuthSession, (req, res) => {
-  res.send('search page courier');
+  res.render('courier/search');
 });
 
 router.get('/order', checkAuthSession, (req, res) => {
