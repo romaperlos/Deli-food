@@ -1,11 +1,11 @@
 <h2>ВВЕДИТЕ АДРЕС ВАШЕГО ТЕКУЩЕГО МЕСТОПОЛОЖЕНИЯ:</h2>
-<ul>
+<form action="/user/main" method="POST">
   <label for="street">Street</label>
   <input type="text" name="street" id="street" required>
   <label for="house">House</label>
-  <input type="text" name="house" id="house" required>
+  <input type="text" name="house" id="house"  required>
   <label for="flat">Flat</label>
-  <input type="text" name="flat" id="flat" required>
-</ul>
+  <input type="text" name="flat" id="flat"  required>
+  <input type="submit" value="Search">
+</form>
 
-<button> <a href="/user/search">Find Food</a></button>
