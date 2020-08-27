@@ -13,8 +13,8 @@
         <div class="cols-sm-10">
           <div class="input-group">
             <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-            <input type="text" placeholder="Enter Email" name="email" id="email" title="Invalid email"
-              class="form-control" required>
+            <input type="text" placeholder="Enter Email" name="email" id="email" pattern="^\S+@\S+$"
+              title="Invalid email" class="form-control" required>
           </div>
         </div>
       </div>
@@ -31,21 +31,15 @@
         </div>
       </div>
 
-      <div class="form-group"></div>
-      <label for="password-repeat" class="cols-sm-2 control-label"><b>Repeat Password</b></label>
-      <div class="cols-sm-10">
-        <div class="input-group">
-          <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-          <input type="password" placeholder="Repeat Password" name="passwordRepeat" id="password-repeat" required
-            class="form-control">
-        </div>
-      </div>
+
 
       <br>
       <div class="text-xs-center">
-        <button class="btn btn-block btn-primary" type="submit">Registration</button>
+        <button class="btn btn-block btn-primary" type="submit">Go</button>
       </div>
 
     </form>
   </div>
+
+
 </div>

@@ -4,8 +4,14 @@ const session = require('express-session');
 const methodOverride = require('method-override');
 const mongoose = require("mongoose");
 const path = require('path');
+require('dotenv').config()
 
 const app = express();
+
+
+
+mongoose.connect(process.env.MONGO_CONNECT, { useNewUrlParser: true, useUnifiedTopology: true });
+
 
 // Init routes
 const registrationRouter = require('./routes/registration');
@@ -21,11 +27,23 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(session({
   secret: 'test',
-  // store: new MongoStore({ mongooseConnection: mongoose.createConnection('mongodb://localhost:27017/broccoli2', { useNewUrlParser: true, useUnifiedTopology: true }) }),
+  // store: new MongoStore({ mongooseConnection: mongoose.createConnection('process.env.MONGO_CONNECT', { useNewUrlParser: true, useUnifiedTopology: true }) }),
   resave: false,
   saveUninitialized: true,
   cookie: { path: '/', httpOnly: true, secure: false, maxAge: null },
 }));
+
+
+//////// check session /////////
+app.use((req, res, next) => {
+  // console.log('COOKIES: ', req.cookies);
+  console.log('SESSION: ', req.session);
+  if (req.session.user) {
+    res.locals.user = req.session.user;
+    // console.log(res.locals.user);
+  }
+  next();
+})
 
 
 app.use('/login', loginRouter);

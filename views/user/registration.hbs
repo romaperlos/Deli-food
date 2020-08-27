@@ -3,6 +3,13 @@
 <link rel="stylesheet" href="/stylesheets/registration.css">
 <div class="container d-flex justify-content-center ">
   <div class="row main-form text-center jumbotron">
+    {{#if invalidPassword }}
+    <section>
+      <h3>
+        Sorry, invalid password!
+      </h3>
+    </section>
+    {{/if}}
     <form method="POST" action="/registration/user">
       <h1>
         <p><strong>Registration</strong></p>
@@ -15,7 +22,8 @@
         <div class="cols-sm-10">
           <div class="input-group">
             <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-            <input type="text" placeholder="Enter Name" name="name" id="login" class="form-control" required>
+            <input type="text" placeholder="Enter Name" name="name" id="login" class="form-control"
+              pattern="[A-Za-z]{4,}" title="Should be more than 4 simbols" required>
           </div>
         </div>
       </div>
@@ -25,18 +33,19 @@
         <div class="cols-sm-10">
           <div class="input-group">
             <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-            <input type="text" placeholder="Enter Email" name="email" id="email" pattern="" title="Invalid email"
-              class="form-control" required>
+            <input type="text" placeholder="Enter Email" name="email" id="email" pattern="^\S+@\S+$"
+              title="Invalid email" class="form-control" required>
           </div>
         </div>
       </div>
+
 
       <div class="form-group">
         <label for="phone" class="cols-sm-2 control-label"><b>Phone</b></label>
         <div class="cols-sm-10">
           <div class="input-group">
             <span class="input-group-addon"><i class="fa fa-phone fa" aria-hidden="true"></i></span>
-            <input type="text" placeholder="Enter Phone" name="phone" id="phone" pattern="[0-9]{4}"
+            <input type="text" placeholder="Enter Phone" name="phone" id="phone" pattern="[0-9]{4, 11}"
               title="Номер телефона должен быть не менее четырех цифр" class="form-control" required>
           </div>
         </div>
