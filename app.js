@@ -1,10 +1,11 @@
-const express = require('express');
-const cookieParser = require('cookie-parser');
-const session = require('express-session');
-const methodOverride = require('method-override');
-const mongoose = require("mongoose");
-const path = require('path');
+const express = require('express')
+const cookieParser = require('cookie-parser')
+const session = require('express-session')
+const methodOverride = require('method-override')
+const mongoose = require('mongoose')
+const path = require('path')
 require('dotenv').config()
+
 
 const app = express();
 
@@ -16,7 +17,6 @@ const userRouter = require('./routes/user');
 
 
 mongoose.connect(process.env.MONGO_CONNECT, { useNewUrlParser: true, useUnifiedTopology: true });
-
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.set('views', path.join(__dirname, 'views'));
@@ -33,30 +33,29 @@ app.use(session({
   cookie: { path: '/', httpOnly: true, secure: false, maxAge: null },
 }));
 
-
 //////// check session /////////
 app.use((req, res, next) => {
   // console.log('COOKIES: ', req.cookies);
-  console.log('SESSION: ', req.session);
+  console.log('SESSION: ', req.session)
   if (req.session.user) {
-    res.locals.user = req.session.user;
+    res.locals.user = req.session.user
     // console.log(res.locals.user);
   }
-  next();
+  next()
 })
-
 
 app.use('/login', loginRouter);
 app.use('/registration', registrationRouter);
 app.use('/courier', courierRouter);
 app.use('/user', userRouter);
 
+
 app.get('/', (req, res) => {
   res.render('main')
 })
 
-const port = process.env.PORT || '3000';
+const port = process.env.PORT || '3000'
 
 app.listen(port, () => {
-  console.log(`Server has been started on ${port}`);
-});
+  console.log(`Server has been started on ${port}`)
+})
