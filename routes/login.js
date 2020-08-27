@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const sha256 = require('sha256');
 const User = require('../models/user');
 const Courier = require('../models/courier');
 
@@ -11,7 +12,9 @@ router.get('/user', (req, res) => {
 });
 
 router.post('/user', async (req, res) => {
-  const { email, password } = req.body;
+  const { email } = req.body;
+  const password = sha256(req.body.password);
+  console.log(password);
   const user = await User.findOne({ email });
   console.log('user login');
   if (user) {
@@ -39,7 +42,8 @@ router.get('/courier', (req, res) => {
 });
 
 router.post('/courier', async (req, res) => {
-  const { email, password } = req.body;
+  const { email } = req.body;
+  const password = sha256(req.body.password);
   const courier = await Courier.findOne({ email });
   console.log('courier login');
   if (courier) {
