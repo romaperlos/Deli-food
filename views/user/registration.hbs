@@ -1,16 +1,26 @@
+{{#if invalidPassword }}
+<section>
+  <h3>
+    Sorry, invalid password!
+  </h3>
+</section>
+{{/if}}
 <form method="POST" action="/registration/user">
   <div class="container">
     <h1>Register</h1>
     <p>Please fill in this form to create an account.</p>
     <hr>
     <label for="Name"></label><b>Name</b></label>
-    <input type="text" placeholder="Enter Name" name="name" id="login" required>
+    <input type="text" placeholder="Enter Name" name="name" id="login" pattern="[A-Za-z]{4,}"
+      title="Should be more than 4 simbols" required>
 
     <label for="email"><b>Email</b></label>
-    <input type="text" placeholder="Enter Email" name="email" id="email" pattern="" title="Invalid email" required>
+    <input type="text" placeholder="Enter Email" name="email" id="email" pattern="^\S+@\S+$" title="Invalid email"
+      required>
 
     <label for="phone"><b>Phone</b></label>
-    <input type="text" placeholder="Enter Phone" name="phone" id="phone" pattern="[0-9]{4}" title="Номер телефона должен быть не менее четырех цифр" required>
+    <input type="text" placeholder="Enter Phone" name="phone" id="phone" pattern="[0-9]{4, 11}"
+      title="Номер телефона должен быть не менее четырех цифр" required>
 
     <label for="password"><b>Password</b></label>
     <input type="password" placeholder="Enter Password" name="password" id="password" required>
