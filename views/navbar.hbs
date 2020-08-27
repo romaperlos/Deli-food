@@ -5,14 +5,20 @@
 </head>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-between">
   <div class="d-flex">
-    <img src="/images/logosmall.jpeg">
-    <a class="navbar-brand font-weight-bold" href="#"> Дэливер Фут© - Еда дешевле чем обычно!</a>
+    <img class="ml-2" src="/images/logosmall.jpeg">
+    <a class="navbar-brand font-weight-bold" href="/main"> Дэливер Фут© - Еда дешевле чем обычно!</a>
     <div class="navbar-nav">
     </div>
   </div>
   <div class="d-flex justify-content-end">
-    <a class="nav-item nav-link text-warning" href="/history">Orders history</a>
-    <a class="nav-item nav-link text-warning" href="/">Exit</a>
+    {{#if user}}
+    <a class="nav-item nav-link text-warning" href="/user/history">Orders history</a>
+    <a class="nav-item nav-link text-warning" href="/user/logout">Exit</a>
+    {{/if}}
+    {{#if courier}}
+    <a class="nav-item nav-link text-warning" href="/courier/history">Orders history</a>
+    <a class="nav-item nav-link text-warning" href="/courier/logout">Exit</a>
+    {{/if}}
   </div>
 </nav>
 

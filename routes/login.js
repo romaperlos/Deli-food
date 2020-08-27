@@ -20,7 +20,7 @@ router.post('/user', async (req, res) => {
   if (user) {
     console.log(password);
     console.log(user.password);
-    if (user.password === password) {
+    if (user.password == password) {
       req.session.user = user;
       console.log('ok');
       res.redirect('/user/main');
@@ -47,7 +47,7 @@ router.post('/courier', async (req, res) => {
   const courier = await Courier.findOne({ email });
   console.log('courier login');
   if (courier) {
-    if (courier.password === password) {
+    if (courier.password == password) {
       req.session.courier = courier;
       res.redirect('/courier/main');
     } else {

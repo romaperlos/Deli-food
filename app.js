@@ -5,6 +5,7 @@ const methodOverride = require('method-override')
 const mongoose = require('mongoose')
 const path = require('path')
 require('dotenv').config()
+const MongoStore = require('connect-mongo')(session);
 
 
 const app = express();
@@ -27,7 +28,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(session({
   secret: 'test',
-  // store: new MongoStore({ mongooseConnection: mongoose.createConnection('process.env.MONGO_CONNECT', { useNewUrlParser: true, useUnifiedTopology: true }) }),
+  store: new MongoStore({ mongooseConnection: mongoose.createConnection(process.env.MONGO_CONNECT, { useNewUrlParser: true, useUnifiedTopology: true }) }),
   resave: false,
   saveUninitialized: true,
   cookie: { path: '/', httpOnly: true, secure: false, maxAge: null },
