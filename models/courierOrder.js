@@ -13,6 +13,7 @@ const courierOrderSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  sales: Number,
   oldPrice: {
     type: Number,
     required: true,

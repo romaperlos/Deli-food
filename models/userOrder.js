@@ -5,12 +5,12 @@ const userOrderSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  houseNumber: {
+  house: {
     type: String,
     required: true,
   },
-  flatNumber: {
-    type: Number,
+  flat: {
+    type: String,
     required: true,
   },
 });

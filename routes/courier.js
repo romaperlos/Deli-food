@@ -19,6 +19,7 @@ router.post('/search', checkAuthSession, async (req, res) => {
     cafe,
     basket,
     address,
+    sales,
     oldPrice,
     newPrice: oldPrice - (oldPrice / 100 * sales),
   });
@@ -31,7 +32,7 @@ router.get('/order', checkAuthSession, (req, res) => {
   res.render('courier/order', { layout: 'navbar.hbs' });
 });
 
-router.get('history', checkAuthSession, (req, res) => {
+router.get('/history', checkAuthSession, (req, res) => {
   res.render('courier/history', { layout: 'navbar.hbs' });
 });
 

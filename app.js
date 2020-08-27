@@ -8,14 +8,14 @@ require('dotenv').config()
 
 const app = express();
 
+// Init routes
+const registrationRouter = require('./routes/registration');
+const loginRouter = require('./routes/login');
+const courierRouter = require('./routes/courier');
+const userRouter = require('./routes/user');
 
 
 mongoose.connect(process.env.MONGO_CONNECT, { useNewUrlParser: true, useUnifiedTopology: true });
-
-
-// Init routes
-const registrationRouter = require('./routes/registration');
-const loginRouter = require('./routes/login')
 
 
 app.use(express.static(path.join(__dirname, 'public')));
@@ -48,6 +48,8 @@ app.use((req, res, next) => {
 
 app.use('/login', loginRouter);
 app.use('/registration', registrationRouter);
+app.use('/courier', courierRouter);
+app.use('/user', userRouter);
 
 app.get('/', (req, res) => {
   res.render('main')
