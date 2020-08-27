@@ -1,9 +1,24 @@
 <h2>СОЗДАТЬ ЗАЯВКУ:</h2>
-<ul>
-  <li>Ресторан: <input> </li><br>
-  <li>Содержимое заказа: <input></li><br>
-  <li>Текущий адрес: <input></li><br>
-  <li>Изначальная цена заказа: <input></li><br>
-  <li>Новая цена со скидкой: <input></li><br>
-</ul>
-<button> <a href="/">РАЗМЕСТИТЬ ЗАЯВКУ</a></button>
+
+<form method="POST" action="/courier/search">
+  <div class="container">
+    <p>Please fill in this form to create an order.</p>
+    <hr>
+    <label for="cafe"></label><b>Ресторан</b></label>
+    <input type="text" placeholder="Enter Cafe" name="cafe" required>
+
+    <label for="basket"><b>Содержимое заказа</b></label>
+    <input type="text" placeholder="Enter Basket" name="basket" id="basket" required>
+
+    <label for="address"><b>Текущий адрес</b></label>
+    <input type="text" placeholder="Enter address" name="address" id="address" required>
+
+    <label for="oldPrice"><b>Изначальная цена заказа</b></label>
+    <input type="oldPrice" placeholder="Enter Old Price" name="oldPrice" id="oldPrice" required>
+
+    <label for="sales"><b>Укажите скидку</b></label>
+    <input type="sales" placeholder="Sales" name="sales" id="sales" required>
+    <hr>
+    <button type="submit" class="registerbtn">Send</button>
+  </div>
+</form>
