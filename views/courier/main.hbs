@@ -1,10 +1,10 @@
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+{{!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"> --}}
 <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
 <link href='https://bootstraptema.ru/snippets/form/2017/recaptcha/custom.css' rel='stylesheet' type='text/css'>
 
-<div class="container">
+<div class="container ">
 
-  <div class="row">
+  <div class="row d-flex justify-content-center">
 
     <div class="col-lg-8 col-lg-offset-2">
 
@@ -13,7 +13,7 @@
       <p class="lead">Для создания заявки, необходимо заполнить все поля.</p>
 
 
-      <form id="contact-form" method="post" action="contact.php" role="form">
+      <form id="contact-form" method="post" action="/courier/search" role="form">
 
         <div class="messages"></div>
 
@@ -24,7 +24,7 @@
               <div class="form-group">
                 <label for="form_name">Ресторан:</label>
                 <input id="form_name" type="text" name="name" class="form-control"
-                  placeholder="Укажите название ресторана" required="required" data-error="Firstname is required.">
+                  placeholder="Укажите название ресторана" required="required" data-error="Заполните поле!.">
                 <div class="help-block with-errors"></div>
               </div>
             </div>
@@ -32,7 +32,7 @@
               <div class="form-group">
                 <label for="form_lastname">Текущий адрес: </label>
                 <input id="form_lastname" type="text" name="surname" class="form-control"
-                  placeholder="Укажите Ваш текущий адрес:" required="required" data-error="Lastname is required.">
+                  placeholder="Укажите Ваш текущий адрес:" required="required" data-error="Заполните поле!.">
                 <div class="help-block with-errors"></div>
               </div>
             </div>
@@ -43,8 +43,8 @@
             <div class="col-md-6">
               <div class="form-group">
                 <label for="form_email">Изначальная цена заказа:</label>
-                <input id="form_email" type="email" name="email" class="form-control"
-                  placeholder="Изначальная цена заказа" required="required" data-error="Valid email is required.">
+                <input id="form_email" type="then" name="email" class="form-control"
+                  placeholder="Изначальная цена заказа" required="required">
                 <div class="help-block with-errors"></div>
               </div>
             </div>
@@ -70,7 +70,7 @@
             <div class="form-group">
               <label for="exampleInputFile">Загрузить фотографию заказа</label>
               <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
-              <small id="fileHelp" class="form-text text-muted">Вы можете загрузить фото Вашего заказа или иное.</small>
+              <small id="fileHelp" class="form-text text-muted">Вы можете загрузить фото Вашего заказа .</small>
             </div>
 
 
@@ -83,6 +83,30 @@
 
             <div class="col-md-12">
               <input type="submit" class="btn btn-success btn-send" value="РАЗМЕСТИТЬ ЗАЯВКУ">
+              <button type="button" class="btn btn-primary btn-send" data-toggle="modal" data-target="#exampleModal">
+                Info
+              </button>
+            </div>
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Помощь</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat illo eum voluptatum nobis nam,
+                    reprehenderit
+                    quasi provident vitae, in ut cumque saepe ipsam ratione odit.
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-dismiss="modal">Ok</button>
+                  </div>
+                </div>
+              </div>
             </div>
 
           </div>
@@ -94,5 +118,4 @@
     </div><!-- /.col-lg-8 col-lg-offset-2 -->
 
   </div> <!-- /.row-->
-
 </div>

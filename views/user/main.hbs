@@ -1,11 +1,88 @@
-<h2>ВВЕДИТЕ АДРЕС ВАШЕГО ТЕКУЩЕГО МЕСТОПОЛОЖЕНИЯ:</h2>
-<ul>
-  <label for="street">Street</label>
-  <input type="text" name="street" id="street" required>
-  <label for="house">House</label>
-  <input type="text" name="house" id="house" required>
-  <label for="flat">Flat</label>
-  <input type="text" name="flat" id="flat" required>
-</ul>
+<link rel="stylesheet" href="https://bootstraptema.ru/plugins/2015/bootstrap3/bootstrap.min.css" />
+<script src="https://bootstraptema.ru/plugins/jquery/jquery-1.11.3.min.js"></script>
+<script src="https://bootstraptema.ru/plugins/2015/b-v3-3-6/bootstrap.min.js"></script>
+<script src="https://bootstraptema.ru/plugins/2016/validator/validator.min.js"></script>
+<style>
+  body {
+    background-position: center center;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    background-image: url(https://u01.appmifile.com/images/2018/06/25/46e0928f-dc4f-4b0b-823b-2d43774958ca.jpg);
+  }
+</style>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <form data-toggle="validator" role="form" action="/user/main" method="POST"
+        class="form-group bg-success jumbotron">
+        <h2 class="text-dark">ВВЕДИТЕ АДРЕС ВАШЕГО ТЕКУЩЕГО МЕСТОПОЛОЖЕНИЯ:</h2>
+        <div class="form-group">
+          <label for="inputName" class="control-label">Улица</label>
+          <input type="text" class="form-control" id="inputName" placeholder="Улица на которой вы находитесь" required>
+        </div>
+        <div class="form-group has-feedback">
+          <label for="inputTwitter" class="control-label">Номер дома</label>
+          <div class="input-group">
+            <span class="input-group-addon">🏬</span>
+            <input type="text" maxlength="15" class="form-control" placeholder="Укажите номер дома" required>
+          </div>
+        </div>
 
-<button> <a href="/user/search">Find Food</a></button>
+        <div class="form-group">
+          <label for="text" class="control-label">Укажите номер квартиры</label>
+          <div class="form-inline row">
+            <div class="form-group col-sm-6">
+              <input type="text" data-toggle="validator" class="form-control" placeholder="123456" required>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="text" class="control-label">Укажите подъезд</label>
+          <div class="form-inline row">
+            <div class="form-group col-sm-6">
+              <input type="text" data-toggle="validator" class="form-control" placeholder="123456" required>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" id="terms" data-error="Прежде чем оправить данные" required>
+              Докажите что Вы человек
+            </label>
+            <div class="help-block with-errors"></div>
+          </div>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary">Отправить</button>
+          <button type="button" class="btn btn-primary " data-toggle="modal" data-target="#exampleModal">
+            Info
+          </button>
+        </div>
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+          aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Помощь</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat illo eum voluptatum nobis nam,
+                reprehenderit
+                quasi provident vitae, in ut cumque saepe ipsam ratione odit.
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-success" data-dismiss="modal">Ok</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

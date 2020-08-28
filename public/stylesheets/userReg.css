@@ -1,5 +1,6 @@
 body {
   background-position: center center;
+  background-color: rgb(98, 98, 98);
   background-size: 100%;
   background-repeat: no-repeat;
   height: 100vh;
@@ -9,9 +10,7 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-
   background-image: url(https://cdn.sm-news.ru/wp-content/uploads/2020/02/19/appetite-hi-1300x675.jpg);
-
 }
 
 .form-group {
