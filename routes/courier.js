@@ -6,11 +6,11 @@ const checkAuthSession = require('../auth/auth');
 
 router.get('/main', checkAuthSession, (req, res) => {
   console.log('courier main');
-  res.render('courier/main', { layout: 'navbar.hbs' });
+  res.render('courier/main', { layout: 'navbar.hbs', courier: true });
 });
 
 router.get('/search', checkAuthSession, (req, res) => {
-  res.render('courier/search', { layout: 'navbar.hbs' });
+  res.render('courier/search', { layout: 'navbar.hbs', courier: true });
 });
 
 router.post('/search', checkAuthSession, async (req, res) => {
@@ -29,11 +29,16 @@ router.post('/search', checkAuthSession, async (req, res) => {
 })
 
 router.get('/order', checkAuthSession, (req, res) => {
-  res.render('courier/order', { layout: 'navbar.hbs' });
+  res.render('courier/order', { layout: 'navbar.hbs', courier: true });
 });
 
 router.get('/history', checkAuthSession, (req, res) => {
-  res.render('courier/history', { layout: 'navbar.hbs' });
+  res.render('courier/history', { layout: 'navbar.hbs', courier: true });
 });
+
+router.get('/logout', async (req, res) => {
+  await req.session.destroy()
+  res.redirect('/')
+})
 
 module.exports = router;

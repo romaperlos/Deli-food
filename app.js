@@ -1,21 +1,22 @@
-const express = require('express');
-const cookieParser = require('cookie-parser');
-const session = require('express-session');
-const methodOverride = require('method-override');
-const mongoose = require("mongoose");
-const path = require('path');
+const express = require('express')
+const cookieParser = require('cookie-parser')
+const session = require('express-session')
+const methodOverride = require('method-override')
+const mongoose = require('mongoose')
+const path = require('path')
 
 require('dotenv').config()
+const MongoStore = require('connect-mongo')(session);
 
 
 const app = express();
 
 // Init routes
 
-const registrationRouter = require('./routes/registration')
-const loginRouter = require('./routes/login')
-const courierRouter = require('./routes/courier')
-const userRouter = require('./routes/user')
+const registrationRouter = require('./routes/registration');
+const loginRouter = require('./routes/login');
+const courierRouter = require('./routes/courier');
+const userRouter = require('./routes/user');
 
 mongoose.connect(process.env.MONGO_CONNECT, { useNewUrlParser: true, useUnifiedTopology: true });
 
@@ -28,7 +29,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(session({
   secret: 'test',
-  // store: new MongoStore({ mongooseConnection: mongoose.createConnection('process.env.MONGO_CONNECT', { useNewUrlParser: true, useUnifiedTopology: true }) }),
+  store: new MongoStore({ mongooseConnection: mongoose.createConnection(process.env.MONGO_CONNECT, { useNewUrlParser: true, useUnifiedTopology: true }) }),
   resave: false,
   saveUninitialized: true,
   cookie: { path: '/', httpOnly: true, secure: false, maxAge: null },
@@ -47,8 +48,8 @@ app.use((req, res, next) => {
 
 app.use('/login', loginRouter);
 app.use('/registration', registrationRouter);
-app.use('/courier', courierRouter)
-app.use('/user', userRouter)
+app.use('/courier', courierRouter);
+app.use('/user', userRouter);
 
 app.get('/', (req, res) => {
   res.render('main')
