@@ -14,7 +14,7 @@ router.get('/search', checkAuthSession, (req, res) => {
 });
 
 router.post('/search', checkAuthSession, async (req, res) => {
-  const { cafe, basket, address, oldPrice,sales} = req.body;
+  const { cafe, basket, address, oldPrice, sales } = req.body;
   const courierOrders = await new CourierOrder({
     cafe,
     basket,
