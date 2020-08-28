@@ -14,18 +14,22 @@
 
 {{else}}
 {{#each courierOrders}}
-<div class="d-flex justify-content-center">
+<div class="d-flex justify-content-center border">
   <h2 class="text-dark">Выберите подходящий Вам заказ, из списка:</h2>
-  <ul>
-    <li>Ресторан: {{cafe}} </li><br>
-    <li>Содержимое заказа: {{basket}}</li><br>
-    <li>Изначальная цена заказа: {{oldPrice}}</li><br>
-    <li>Цена заказа со скидкой для Вас: {{newPrice}}</li><br>
-    <li>Скидка для Вас: {{sales}}%</li><br>
-    <li>Связаться с курьером по телефону {{phoneOfCourier}}</li><br>
-    <li>Связаться с курьером через почту {{email}}</li><br>
-  </ul>
+  <div class="d-flex justify-content-center ">
+
+    <ul class="d-flex justify-content-center">
+      <ul class="border">Ресторан: {{cafe}} </ul><br>
+      <ul class="border">Содержимое заказа: {{basket}}</ul><br>
+      <ul class="border">Изначальная цена заказа: {{oldPrice}}</ul><br>
+      <ul class="border">Цена заказа со скидкой для Вас: {{newPrice}}</ul><br>
+      <ul class="border">Скидка для Вас: {{sales}}%</ul><br>
+      <ul class="border">Связаться с курьером по телефону {{phoneOfCourier}}</ul><br>
+      <ul class="border">Связаться с курьером через почту {{email}}</ul><br>
+    </ul>
+  </div>
 </div>
+
 <a class="btn btn-outline-success" id="{{_id}}" href="/user/order?email={{email}}">СДЕЛАТЬ ЗАКАЗ</a>
 {{/each}}
 
