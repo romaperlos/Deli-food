@@ -3,6 +3,8 @@ const router = express.Router();
 const Courier = require('../models/courier.js');
 const CourierOrder = require('../models/courierOrder');
 const checkAuthSession = require('../auth/auth');
+const nodemailer = require("nodemailer");
+const session = require("express-session");
 
 router.get('/main', checkAuthSession, async (req, res) => {
   const emailOfCourier = req.session.courier.email;
@@ -35,7 +37,31 @@ router.post('/search', checkAuthSession, async (req, res) => {
 })
 
 router.get('/order', checkAuthSession, (req, res) => {
-  res.render('courier/order', { layout: 'navbar.hbs', courier: true });
+  const {street, house, flat, email} = req.query;
+  console.log(street, house, flat, email);
+  const transporter = nodemailer.createTransport({
+    host: 'smtp.mail.ru',
+    port: 465,
+    sucure: true,
+    auth: {
+      user: 'delaver.fut@mail.ru',
+      pass: '89150314855a',
+    }
+  });
+  const mailOptions = {
+    from: 'delaver.fut@mail.ru',
+    to: email,
+    subject: 'You order in the way!',
+    text: `Hello, your order will be around 30 minutes`,
+  };
+  transporter.sendMail(mailOptions, (err, info) => {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log('Congratulation, your email has been sended!' + info.response);
+    }
+  });
+  res.render('courier/order', { layout: 'navbar.hbs', courier: true, street, house, flat });
 });
 
 router.get('/history', checkAuthSession, async (req, res) => {
