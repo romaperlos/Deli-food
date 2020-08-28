@@ -1,4 +1,5 @@
- {{#if flag }}
+<script defer src="/js/nodemailer.js"></script>
+{{#if flag }}
 <h2>Сейчас по близости нет доступных заказов...</h2>
 <div>как только появится доступный заказ, вы будете извещены по email</div>
 {{else}}
@@ -11,8 +12,11 @@
   <li>Изначальная цена заказа: {{oldPrice}}</li><br>
   <li>Цена заказа со скидкой для Вас: {{newPrice}}</li><br>
   <li>Скидка для Вас: {{sales}}%</li><br>
+  <li>Связаться с курьером по телефону {{phoneOfCourier}}</li><br>
+  <li>Связаться с курьером через почту {{email}}</li><br>
 </ul>
-<button> <a href="/user/order">СДЕЛАТЬ ЗАКАЗ</a></button>
+<button> <a id="{{_id}}" href="/user/order?email={{email}}">СДЕЛАТЬ ЗАКАЗ</a></button>
 {{/each}}
-<a href="/user/main">Назад</a>
+
 {{/if}}
+<a href="/user/main">Назад</a>

@@ -4,6 +4,7 @@ const session = require('express-session')
 const methodOverride = require('method-override')
 const mongoose = require('mongoose')
 const path = require('path')
+const nodemailer = require("nodemailer");
 
 require('dotenv').config()
 const MongoStore = require('connect-mongo')(session);
