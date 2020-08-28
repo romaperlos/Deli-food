@@ -1,70 +1,3 @@
-<h2>СОЗДАТЬ ЗАЯВКУ:</h2>
-
-
-<form method="POST" action="/courier/search">
-  <div class="container">
-    <p>Please fill in this form to create an order.</p>
-    <hr>
-    <label for="cafe"></label><b>Ресторан</b></label>
-    <input type="text" placeholder="Enter Cafe" name="cafe" required>
-
-    <label for="basket"><b>Содержимое заказа</b></label>
-    <input type="text" placeholder="Enter Basket" name="basket" id="basket" required>
-
-    <label for="address"><b>Текущий адрес</b></label>
-    <input type="text" placeholder="Enter address" name="address" id="address" required>
-
-    <label for="oldPrice"><b>Изначальная цена заказа</b></label>
-    <input type="oldPrice" placeholder="Enter Old Price" name="oldPrice" id="oldPrice" required>
-
-    <label for="sales"><b>Укажите скидку</b></label>
-    <input type="sales" placeholder="Sales" name="sales" id="sales" required>
-    <hr>
-    <button type="submit" class="registerbtn">Send</button>
-  </div>
-</form>
-
-{{!-- <div class="form-group">
-  <label for="exampleInputFile">Загрузить фотографию заказа</label>
-  <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
-  <small id="fileHelp" class="form-text text-muted">Вы можете загрузить фото Вашего заказа или иное.</small>
-</div>
-<div class="form-check">
-  <label class="form-check-label">
-    <input type="checkbox" class="form-check-input">
-    Торг
-  </label>
-</div>
-<button type="submit" class="btn btn-primary">РАЗМЕСТИТЬ ЗАЯВКУ</button> --}}
-
-<!-- Button trigger modal -->
-<div class="d-flex justify-content-center">
-  <button type="button" class="btn btn-primary btn-lg w-25" data-toggle="modal" data-target="#exampleModal">
-    Info
-  </button>
-</div>
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-  aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Помощь</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat illo eum voluptatum nobis nam, reprehenderit
-        quasi provident vitae, in ut cumque saepe ipsam ratione odit.
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-success" data-dismiss="modal">Ok</button>
-      </div>
-    </div>
-  </div>
-{{!-- =======
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
 <link href='https://bootstraptema.ru/snippets/form/2017/recaptcha/custom.css' rel='stylesheet' type='text/css'>
 
@@ -149,6 +82,28 @@
 
             <div class="col-md-12">
               <input type="submit" class="btn btn-success btn-send" value="РАЗМЕСТИТЬ ЗАЯВКУ">
+              <button type="button" class="btn btn-warning btn-send" data-toggle="modal" data-target="#exampleModal">
+                Info
+              </button>
+            </div>
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Помощь</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    Заполните форму для корректной работы сервиса!
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-dismiss="modal">Ok</button>
+                  </div>
+                </div>
+              </div>
             </div>
 
           </div>
@@ -159,5 +114,7 @@
 
     </div><!-- /.col-lg-8 col-lg-offset-2 -->
 
-  </div> <!-- /.row--> --}}
-</div>
+  </div>
+  <!-- /.row-->
+
+</div> <!-- /.row--> --}}

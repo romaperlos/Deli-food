@@ -20,6 +20,15 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  street: {
+    type: String,
+  },
+  house: {
+    type: String,
+  },
+  flat: {
+    type: String,
+  },
 })
 
 module.exports = mongoose.model('User', userSchema);
