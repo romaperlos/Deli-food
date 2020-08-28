@@ -18,12 +18,6 @@ const loginRouter = require('./routes/login');
 const courierRouter = require('./routes/courier');
 const userRouter = require('./routes/user');
 
-
-const registrationRouter = require('./routes/registration')
-const loginRouter = require('./routes/login')
-const courierRouter = require('./routes/courier')
-const userRouter = require('./routes/user')
-
 mongoose.connect(process.env.MONGO_CONNECT, { useNewUrlParser: true, useUnifiedTopology: true });
 
 app.use(express.static(path.join(__dirname, 'public')));

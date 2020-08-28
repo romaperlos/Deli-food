@@ -1,44 +1,5 @@
 <h2>СОЗДАТЬ ЗАЯВКУ:</h2>
 
-<ul>
-  <li>Ресторан: <input type="text"> </li><br>
-  <li>Содержимое заказа: <input></li><br>
-  <li>Текущий адрес: <input></li><br>
-  <li>Изначальная цена заказа: <input></li><br>
-  <li>Новая цена со скидкой: <input></li><br>
-  </ul>
-  <button> <a href="/">РАЗМЕСТИТЬ ЗАЯВКУ</a></button>
-
-
-
-  <form>
-    <div class="form-group">
-      <label for="exampleInputEmail1">Ресторан:</label>
-      <input type="text" class="form-control" id="rest" aria-describedby="rest" placeholder="Ресторан">
-    </div>
-    <div class="form-group">
-      <label for="addres">Текущий адрес:</label>
-      <input type="text" class="form-control" id="addres" placeholder="адрес">
-    </div>
-    <div class="form-group">
-      <label for="order">Содержимое заказа:</label>
-      <textarea class="form-control" id="order" rows="3"></textarea>
-    </div>
-
-
-    <div class="form-group">
-      <label for="exampleInputFile">Загрузить фотографию заказа</label>
-      <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
-      <small id="fileHelp" class="form-text text-muted">Вы можете загрузить фото Вашего заказа или иное.</small>
-    </div>
-    <div class="form-check">
-      <label class="form-check-label">
-        <input type="checkbox" class="form-check-input">
-        Торг
-      </label>
-    </div>
-    <button type="submit" class="btn btn-primary">РАЗМЕСТИТЬ ЗАЯВКУ</button>
-    {{!-- =======
 
 <form method="POST" action="/courier/search">
   <div class="container">
@@ -61,5 +22,45 @@
     <hr>
     <button type="submit" class="registerbtn">Send</button>
   </div>
->>>>>>> 24b96bd15045000d030ca73fae3b9706fa372eb6 --}}
-  </form>
+</form>
+
+{{!-- <div class="form-group">
+  <label for="exampleInputFile">Загрузить фотографию заказа</label>
+  <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
+  <small id="fileHelp" class="form-text text-muted">Вы можете загрузить фото Вашего заказа или иное.</small>
+</div>
+<div class="form-check">
+  <label class="form-check-label">
+    <input type="checkbox" class="form-check-input">
+    Торг
+  </label>
+</div>
+<button type="submit" class="btn btn-primary">РАЗМЕСТИТЬ ЗАЯВКУ</button> --}}
+
+<!-- Button trigger modal -->
+<div class="d-flex justify-content-center">
+  <button type="button" class="btn btn-primary btn-lg w-25" data-toggle="modal" data-target="#exampleModal">
+    Info
+  </button>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Помощь</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat illo eum voluptatum nobis nam, reprehenderit
+        quasi provident vitae, in ut cumque saepe ipsam ratione odit.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" data-dismiss="modal">Ok</button>
+      </div>
+    </div>
+  </div>
+</div>
