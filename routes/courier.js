@@ -26,7 +26,8 @@ router.post('/search', checkAuthSession, async (req, res) => {
     oldPrice,
     newPrice: oldPrice - (oldPrice / 100 * sales),
     email: req.session.courier.email,
-    phoneOfCourier: req.session.courier.phone
+    phoneOfCourier: req.session.courier.phone,
+    date: new Date().toDateString(),
   });
   courierOrders.save();
   console.log(courierOrders);
@@ -37,13 +38,24 @@ router.get('/order', checkAuthSession, (req, res) => {
   res.render('courier/order', { layout: 'navbar.hbs', courier: true });
 });
 
-router.get('/history', checkAuthSession, (req, res) => {
-  res.render('courier/history', { layout: 'navbar.hbs', courier: true });
+router.get('/history', checkAuthSession, async (req, res) => {
+  const courier = req.session.courier;
+  const email = req.session.courier.email;
+  const courierOrders = await CourierOrder.find({ email });
+  console.log(courierOrders);
+  let flag = false;
+  if (courierOrders.length === 0) {
+    flag = true;
+  }
+  // console.log('>>>>>>>', email);
+  console.log(courierOrders);
+  console.log(email);
+  res.render('courier/history', { layout: 'navbar.hbs', courierOrders, flag });
 });
 
 router.get('/logout', async (req, res) => {
-  await req.session.destroy()
-  res.redirect('/')
+  await req.session.destroy();
+  res.redirect('/');
 })
 
 module.exports = router;

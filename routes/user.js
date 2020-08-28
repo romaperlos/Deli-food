@@ -13,13 +13,17 @@ router.get('/main', (req, res) => {
 
 router.post('/main', checkAuthSession, async (req, res) => {
   const { street, house, flat } = req.body;
-  const userOrders = await new UserOrder({
-    street,
-    house,
-    flat,
-  });
-  userOrders.save();
-  console.log(userOrders);
+  const user = req.session.user;
+  const oneUser = await User.findOne({ email: user.email })
+  oneUser.street = street
+  oneUser.house = house
+  oneUser.flat = flat;
+  await oneUser.save();
+  req.session.user.street = street
+  req.session.user.house = house
+  req.session.user.flat = flat;
+  console.log(oneUser);
+  console.log(req.session.user);
   res.redirect('/user/search');
 });
 
@@ -36,7 +40,7 @@ router.get('/search', checkAuthSession, async (req, res) => {
 
 router.get('/order', checkAuthSession, async (req, res) => {
   const email = req.query.email;
-  console.log(req.query);
+
   const emailOfCourier = await CourierOrder.findOne({ email });
   const transporter = nodemailer.createTransport({
     host: 'smtp.mail.ru',
@@ -51,20 +55,15 @@ router.get('/order', checkAuthSession, async (req, res) => {
     from: 'delaver.fut@mail.ru',
     to: emailOfCourier.email,
     subject: 'You have a new order!',
-    text: 'Hello, you should be deliver order on blablabla street.',
+    text: `Hello, you should be deliver order on ${req.session.user.street} ${req.session.user.house}, ${req.session.user.flat} street.`,
   };
   transporter.sendMail(mailOptions, (err, info) => {
     if (err) {
       console.log(err);
     } else {
-      console.log('email sent' + info.response);
+      console.log('Congratulation, your email has been sended!' + info.response);
     }
   });
-  // console.log(emailOfCourier.id);
-  // console.log(emailOfCourier.email);
-  // console.log(emailOfCourier.phoneOfCourier);
-  // console.log(emailOfCourier.email);
-
   res.render('user/order', { layout: 'navbar.hbs', user: true });
 });
 
