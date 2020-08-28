@@ -28,6 +28,7 @@
     "hbs": "^4.1.1",
     "method-override": "^3.0.0",
     "mongoose": "^5.10.0",
+    "nodemailer": "^6.4.11",
     "nodemon": "^2.0.4",
     "sha256": "^0.2.0"
   }
