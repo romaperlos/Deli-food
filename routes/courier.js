@@ -4,9 +4,12 @@ const Courier = require('../models/courier.js');
 const CourierOrder = require('../models/courierOrder');
 const checkAuthSession = require('../auth/auth');
 
-router.get('/main', checkAuthSession, (req, res) => {
+router.get('/main', checkAuthSession, async (req, res) => {
+  const emailOfCourier = req.session.courier.email;
+  const numberOfCourier = req.session.courier.phone;
+  console.log(emailOfCourier);
   console.log('courier main');
-  res.render('courier/main', { layout: 'navbar.hbs', courier: true });
+  res.render('courier/main', { layout: 'navbar.hbs', courier: true, emailOfCourier, numberOfCourier });
 });
 
 router.get('/search', checkAuthSession, (req, res) => {
@@ -22,6 +25,8 @@ router.post('/search', checkAuthSession, async (req, res) => {
     sales,
     oldPrice,
     newPrice: oldPrice - (oldPrice / 100 * sales),
+    email: req.session.courier.email,
+    phoneOfCourier: req.session.courier.phone
   });
   courierOrders.save();
   console.log(courierOrders);

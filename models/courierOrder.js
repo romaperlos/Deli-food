@@ -22,6 +22,8 @@ const courierOrderSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
+  email: String,
+  phoneOfCourier: Number,
 });
 
 module.exports = mongoose.model("CourierOrder", courierOrderSchema);
