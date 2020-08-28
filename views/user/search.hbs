@@ -1,0 +1,41 @@
+{{!-- <script defer src="/js/nodemailer.js"></script> --}}
+{{#if flag }}
+<div class="d-flex justify-content-center">
+  <h2 class="text-danger">Сейчас по близости нет доступных заказов...</h2>
+</div>
+<div class="d-flex justify-content-center">
+  <img class="ml-2" src="https://teleskop-by.org/wp-content/uploads/2019/12/1-400.jpg">
+</div>
+<div class="d-flex justify-content-center">
+  <h3 class="text-dark">Как только появится доступный заказ, вы будете извещены по email</h3>
+</div>
+
+
+
+{{else}}
+<h2 class="d-flex justify-content-center text-dark mb-4">Выберите подходящий Вам заказ, из списка:</h2>
+{{#each courierOrders}}
+
+<div class="container border border-warning w-25 mb-3">
+  <div class="">
+    <ul class="">
+      <ul class="my-1"><strong> Ресторан:</strong> {{cafe}} </ul><br>
+      <ul class="my-1"> <strong>Содержимое заказа:</strong> {{basket}}</ul><br>
+      <ul class="my-1"> <strong>Изначальная цена заказа:</strong> {{oldPrice}}</ul><br>
+      <ul class="my-1"> <strong>Цена заказа со скидкой для Вас:</strong> {{newPrice}}</ul><br>
+      <ul class="my-1"> <strong>Скидка для Вас:</strong> {{sales}}%</ul><br>
+      <ul class="my-1"> <strong>Связаться с курьером по телефону</strong> {{phoneOfCourier}}</ul><br>
+      <ul class="my-1"> <strong>Связаться с курьером через почту</strong> {{email}}</ul><br>
+    </ul>
+  </div>
+  <hr class="hr-2">
+  <a class="btn btn-outline-success w-50" id="{{_id}}" href="/user/order?email={{email}}">СДЕЛАТЬ ЗАКАЗ</a>
+</div>
+
+{{/each}}
+
+{{/if}}
+<div class="d-flex justify-content-center">
+  <a class="btn btn-outline-success" href="/user/main">Назад</a>
+
+</div>

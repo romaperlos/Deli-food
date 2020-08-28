@@ -1,0 +1,15 @@
+body {
+  /* height: 100%; Высота веб-страницы */
+  background: url(https://englex.ru/wp-content/uploads/scotch-eggs.gif);
+  background-position: center center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  height: 100vh;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  flex-direction: column;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
